@@ -16,29 +16,19 @@ app.get('/', ( request, response) => {
     ) 
  });
 
-app.get('/productos', ( request, response) => {
-    const data = contenedor.getAll();
-    response.send(data);
+ 
+app.get('/productos', async ( request, response) => {
+    const data = await contenedor.getAll();
+    response.json(data);
 })
 
-// app.get('/productos', ( request, response) => {
-//    const data = contenedor.getAll()
-//    response.send(data) 
-// });
 
-app.get('/productosRandom', ( request, response) => {
-    const data = contenedor.getAll();
+app.get('/productosRandom', async ( request, response) => {
+    const data = await contenedor.getAll();
     const num = Math.floor(Math.random() * data.length);
     const item = data[num];
     response.json(item);
 })
-
-// app.get('/productosRandom', ( request, response) => {
-//     const data = contenedor.getAll()
-//     const num = Math.floor(Math.random() * data.length)
-//     const item = data[num]
-//     response.json(item) 
-//  });
 
 
  const connectedServer = app.listen(PORT, () => {
