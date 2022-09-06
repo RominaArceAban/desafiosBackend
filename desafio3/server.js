@@ -1,5 +1,4 @@
 
-const { request, response } = require('express')
 const express = require('express')
 const Contenedor = require('./contenedor')
 
@@ -16,7 +15,7 @@ app.get('/', ( request, response) => {
     ) 
  });
 
- 
+
 app.get('/productos', async ( request, response) => {
     const data = await contenedor.getAll();
     response.json(data);
