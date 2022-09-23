@@ -1,0 +1,76 @@
+
+<style>
+    .table th {
+        vertical-align: middle;
+        margin: 50px;
+        background-color: #243138;
+        color: white;
+        padding: 15px 20px;
+        width: 75vh;
+    }
+
+    .table td {
+        vertical-align: middle;
+        margin: 50px;
+        background-color: #243138;
+        color: white;
+        padding: 5px 20px;
+        width: 75vh;
+    }
+
+    h1 {
+        color: blue;
+    }
+
+    th {
+        font-weight: bold;
+    }
+    
+    a {
+      background-color: rgb(41, 155, 41);
+      color: white;
+      padding: 10px;
+      text-decoration: none;
+      border-radius: 5%;
+      opacity: ;
+    }
+
+    .jumbotron {
+        min-height: 80vh;
+        padding: 50px;
+        background-color: rgb(234, 236, 236);
+        max-width: 80vh;
+        margin: 0 auto;
+    }
+
+    
+</style>
+
+<div class="jumbotron">
+    <h1>Vista de Productos</h1>
+    <br>
+
+    {{#if hayProductos}}
+    <div class="table-responsive">
+        <table class="table table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Foto</th>
+            </tr>
+            {{#each productos}}
+            <tr>
+                <td>{{this.title}}</td>
+                <td>${{this.price}}</td>
+                <td><img width="100" height="75" src={{this.thumbnail}} alt="not found"></td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    {{else}}
+    <h3>No se encontraron productos</h3>
+    {{/if}}
+    <br>
+    <a href="/" type="button">Cargar un nuevo producto</a>
+</div>
+    
